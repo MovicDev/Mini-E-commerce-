@@ -45,13 +45,35 @@
         <button class="btn btn-danger my-2  form-control-sm rounded-0 col" onclick="remTop()">Remove From Cart Top</button>
         <button class="btn btn-success my-2  form-control-sm rounded-0 col" onclick="shit()">Remove From Cart Back</button>
         <button class="btn btn-primary my-2  form-control-sm rounded-0 col" onclick="addEdit()">Edit </button>
-        <button class="btn btn-warning my-2  form-control-sm rounded-0 col" onclick="delAny()">Delete Any  </button>
+        <button class="btn btn-warning my-2  form-control-sm rounded-0 col"  data-bs-toggle="modal" data-bs-target="#exampleModal">Delete Any  </button>
         <button class="btn btn-danger my-2 form-control-sm rounded-0 col"  onclick="delAll()">Delete All </button>
         <button class="btn btn-info my-2  form-control-sm rounded-0 col-12" onclick="addRev()">Reverse Cart </button>
     </div>
     </div>
-        <p>@MovicDev</p>
-    </div>    
+    </div>  
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="alert alert-success p-2 mb-2 col mx-auto text-center" style="display:none;" id="succe">Cart successfully Delete</div>
+            <div class="alert alert-danger p-2 mb-2 col mx-auto text-center" style="display: none;" id="emp">The cart is empty</div>
+            <input type="number" id="deleteAny" class="form-control form-shadow shadow-none" placeholder="please input the number you want to delete">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="close()">Close</button>
+            <button type="button" class="btn btn-primary"  onclick="delAny()">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>  
     <script src="scrtip.js"></script>
+    <scrict src="bootstrap.js"></scrict>
 </body>
 </html>
+
+
