@@ -65,23 +65,37 @@ function shit() {
         show.innerHTML = cart;
         displayCart()
      }
-     function delAny() {
-        var confirmation = Number(prompt("Enter the number you want to delete"))
-        if (confirmation > cart.length) {
-         alert("This cart is empty")
-        }
-        else{
+   //   function delAny() {
+   //      var confirmation = Number(prompt("Enter the number you want to delete"))
+   //      if (confirmation > cart.length) {
+   //       alert("This cart is empty")
+   //      }
+   //      else{
         
-        cart.splice(confirmation-1,1)
-        document.getElementById('inp').value = '';
-        show.innerHTML = cart;
-        displayCart()
+   //      cart.splice(confirmation-1,1)
+   //      document.getElementById('inp').value = '';
+   //      show.innerHTML = cart;
+   //      displayCart()
+   //    }
+   //   }
+   function delAny() {
+      if (deleteAny.value > cart.length || deleteAny.value === ''  ) {
+       emp.style.display='block'
+       succe.style.display='none'
       }
-     }
+      else{
+      cart.splice(deleteAny-1,1)
+      document.getElementById('deleteAny').value = '';
+      show.innerHTML = cart;
+      succe.style.display='block'
+      displayCart()
+    }
+   }
      function addEdit() {
-        var confirm =Number(prompt("Enter the number you want to edit"))
+        var confirm =prompt("Enter the number you want to edit")
         var confirmer = prompt("Edit Name")
-        if (confirm > cart.length || confirmer == show.innerHTML) {
+        var lop ="object"
+        if (confirm > cart.length || confirmer == show.innerHTML || show.innerHTML == "" || typeof(confirm) == lop) {
          alert("invalid Number")
         }
         else{
@@ -91,11 +105,28 @@ function shit() {
         displayCart()
       }
      }
-     function delAll() {
-        show.innerHTML =   `<th colspan="2" class="text-center">No item added yet to store</th>`;
-        cart.length = 0
-        count.innerHTML = cart.length
-     }
+   //   function delAll() {
+   //      show.innerHTML =   `<th colspan="2" class="text-center">No item added yet to store</th>`;
+   //      cart.length = 0
+   //      count.innerHTML = cart.length
+   //   }
+   function delAll() {
+      if (cart.length > 0) {
+         var confirmation =confirm("Are you sure you wan to clear the cart")
+         if (confirmation) {
+            cart.splice(cart, cart.length)
+            displayCart()
+            show.innerHTML =   `<th colspan="2" class="text-center">No item added yet to store</th>`;
+            count.innerHTML = cart.length
+         }else{
+            displayCart()
+         }
+         
+      }else{
+        alert("Cart is empty")
+      }
+      
+   }
 
 
 
